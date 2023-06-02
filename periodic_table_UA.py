@@ -20,8 +20,8 @@ class Table:
         self.searchvar = tk.StringVar()
         self.searchbar = tk.Entry(master = self.homegrid, textvariable = self.searchvar).pack(pady = (5, 10))
         self.searchvar.trace_add(mode = 'write', callback = self.search)
-    
-        self.colours = {'Alkali Metal': '#560D42', 
+                                                                                        #colours
+        self.colours = {'Alkali Metal': '#560D42',                                                              
                         'Alkaline Earth Metal': '#820263',
                         'Metal': 'blue',
                         'Transition Metal': '#D90368',
