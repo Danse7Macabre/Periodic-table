@@ -20,7 +20,7 @@ class Table:
         self.searchvar = tk.StringVar()
         self.searchbar = tk.Entry(master = self.homegrid, textvariable = self.searchvar).pack(pady = (5, 10))
         self.searchvar.trace_add(mode = 'write', callback = self.search)
-                                                                                        #colours
+                                                                                        #colours MORE COLOURSS
         self.colours = {'Alkali Metal': '#560D42',                                                              
                         'Alkaline Earth Metal': '#820263',
                         'Metal': 'blue',
@@ -34,8 +34,6 @@ class Table:
                         'Actinide': '#175F4C'
                         }
         column8offset = 0
-        for i, element in self.dataframe.iterrows():
-            print(f'{element.AtomicNumber}, {element.Subperiod_UA}')
         for i, element in self.dataframe.iterrows():
             if element.Group_UA == 8:
                 displaycolumn = 8 + column8offset
