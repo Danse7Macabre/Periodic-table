@@ -1,4 +1,4 @@
-import tkinter as tk                               #asdfghjk,mrhfwkgvkwhbfjbflfjnwlefjqlijebflijblijwbleiefjilwjfiwjf
+import tkinter as tk
 import os
 import pandas as pd
 from typing import List
@@ -20,7 +20,6 @@ class Table:
         self.searchvar = tk.StringVar()
         self.searchbar = tk.Entry(master = self.homegrid, textvariable = self.searchvar).pack(pady = (5, 10))
         self.searchvar.trace_add(mode = 'write', callback = self.search)
-                                                                                        #colours MORE COLOURSS
         self.colours = {'Alkali Metal': '#560D42',                                                              
                         'Alkaline Earth Metal': '#820263',
                         'Metal': 'blue',
@@ -42,18 +41,18 @@ class Table:
                 displaycolumn = element.Group_UA
                 column8offset = 0
             if element.AtomicNumber >= 58 and element.AtomicNumber <= 71:
-                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, height = 2, width = 6, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
+                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, image = tk.PhotoImage(), compound = tk.CENTER, height = 35, width = 33.3, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
                 self.element_buttons[-1].grid(row = 0, column = element.AtomicNumber - 57)
             elif element.AtomicNumber >= 90 and element.AtomicNumber <= 103:
-                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, height = 2, width = 6, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
+                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, image = tk.PhotoImage(), compound = tk.CENTER, height = 35, width = 33.3, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
                 self.element_buttons[-1].grid(row = 1, column = element.AtomicNumber - 89)
             else:
                 self.element_buttons.append(tk.Button(master = self.maingrid, text = element.Symbol, height = 2, width = 6, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
                 self.element_buttons[-1].grid(row = int(element.Subperiod_UA) + 1, column = int(displaycolumn) + 2)
         row = 0
         for key, value in self.colours.items():
-            tk.Label(master = self.keygrid, height = 1, width = 2, bg = value, ).grid(row = row, column = 0, pady = (0, 20))
-            tk.Label(master = self.keygrid, text = '- ' + key).grid(row = row, column = 1, pady = (0, 20))
+            tk.Label(master = self.keygrid, height = 1, width = 2, bg = value, ).grid(row = row, column = 0, pady = (0, 10))
+            tk.Label(master = self.keygrid, text = '- ' + key).grid(row = row, column = 1, pady = (0, 10))
             row += 1
         tk.Label(master = self.maingrid, width = 85, text = 'ГРУПИ ЕЛЕМЕНТІВ', borderwidth = 1, relief = 'solid').grid(row = 0, column = 2, columnspan = 11)
         tk.Label(master = self.maingrid, width = 56, height = 35, text = 'ПЕРІОД', image = tk.PhotoImage(), compound = tk.CENTER, borderwidth = 1, relief = 'solid').grid(row = 0, column = 0, rowspan = 2)
@@ -79,7 +78,7 @@ class Table:
             tk.Label(master = self.maingrid, width = 3, height = 3, text = f'{i}', borderwidth = 1, relief = 'solid').grid(row = i + 1, column = 1)
 
         self.maingrid.pack()
-        self.seriesgrid.pack(pady = (20, 30))
+        self.seriesgrid.pack(pady = (0, 0))
         self.keygrid.pack(side = tk.LEFT)
         self.homegrid.pack(side = tk.LEFT)
         self.infogrid.pack(side = tk.RIGHT)
