@@ -1,7 +1,7 @@
 import tkinter as tk
 import os
-import pandas as pd
 from typing import List
+import pandas as pd
 TABLE = os.path.join(os.path.dirname(__file__), 'periodic_table.csv')
 
 class Table:
@@ -41,10 +41,10 @@ class Table:
                 displaycolumn = element.Group_UA
                 column8offset = 0
             if element.AtomicNumber >= 58 and element.AtomicNumber <= 71:
-                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, image = tk.PhotoImage(), compound = tk.CENTER, height = 35, width = 33.3, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
+                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, height = 2, width = 5, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
                 self.element_buttons[-1].grid(row = 0, column = element.AtomicNumber - 57)
             elif element.AtomicNumber >= 90 and element.AtomicNumber <= 103:
-                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, image = tk.PhotoImage(), compound = tk.CENTER, height = 35, width = 33.3, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
+                self.element_buttons.append(tk.Button(master = self.seriesgrid, text = element.Symbol, height = 2, width = 5, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
                 self.element_buttons[-1].grid(row = 1, column = element.AtomicNumber - 89)
             else:
                 self.element_buttons.append(tk.Button(master = self.maingrid, text = element.Symbol, height = 2, width = 6, bg = self.colours[element.Type], fg = 'white', highlightthickness = 5, command = lambda index=i: self.element_press(index)))
@@ -118,9 +118,7 @@ class Table:
                 self.element_buttons[index].config(bg = 'yellow', highlightcolor = 'yellow')
         else:
             self.element_press(elementfound[0])
-
-
-
+            
 if __name__ == '__main__':
     window = tk.Tk()
     table = Table(window)
